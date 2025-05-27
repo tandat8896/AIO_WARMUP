@@ -1,0 +1,17 @@
+// Database Schema
+digraph {
+	Products [label="Products
+(ProductID, ProductName, Price, Stock)"]
+	Customers [label="Customers
+(CustomerID, FullName, Email, PhoneNumber)"]
+	Salespersons [label="Salespersons
+(SalespersonsID, FullName, Email, PhoneNumber)"]
+	Orders [label="Orders
+(OrderID, CustomerID, SalespersonsID, OrderDate, TotalAmount)"]
+	OrderDetails [label="OrderDetails
+(OrderDetailID, OrderID, ProductID, Quantity, Subtotal)"]
+	Orders -> Customers [label="CustomerID (FK)"]
+	Orders -> Salespersons [label="SalespersonsID (FK)"]
+	OrderDetails -> Orders [label="OrderID (FK)"]
+	OrderDetails -> Products [label="ProductID (FK)"]
+}
